@@ -1,5 +1,5 @@
 
-# comm-ddp
+# comm-ddp <object https://img.shields.io/pypi/dm/comm-ddp?style=plastic>
 
 An easy-to-use communication tools for pytorch-DDP (single-node with multi-GPUs).
 
