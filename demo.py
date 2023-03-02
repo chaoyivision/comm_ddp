@@ -15,7 +15,7 @@ if use_DDP:
 
 
 # sometimes, you want every process to print their own statement
-print(f'rank: {comm.get_local_rank()} - is it the main process()? -> {comm.is_main_process()}\n')
+print(f'rank: {comm.get_local_rank()} - is it the main process()? -> {comm.is_main_process()}')
 
 # sometimes, you're tired of seeing repeated info printed by different ranks.
 comm.mprint(f'world_size: {comm.get_world_size()} -> this statement is printed by rank-{comm.get_local_rank()}')
