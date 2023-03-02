@@ -22,13 +22,13 @@ comm.launch_DDP()
 
 - print iff. main_rank
 ```
-comm.mprint()
+comm.mprint("Hello World") # only main_rank would print
 ```
 
 - rank & world size
 ```
-comm.get_local_rank()
-comm.get_world_size()
+local_rank = comm.get_local_rank()
+word_size = comm.get_world_size()
 ```
 
 - gather
