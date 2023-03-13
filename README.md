@@ -47,7 +47,13 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 def to_dev(x, device='cuda'):
   rank=comm.get_local_rank()
   dst = torch.device(device) is rank is None else rank
-  return x.to(dst)
+  
+  x = x.to(dst)
+  
+  if isinstance(x, nn.Module):
+    x = DDP(x, device_ids=[rank % torch.cuda.device_count()], find_unused_parameters=False)
+  
+  return x
   
 model = to_dev(model)  
 
