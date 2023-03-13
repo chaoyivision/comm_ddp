@@ -43,10 +43,13 @@ comm.all_gather()
 wrap model with DDP
 ```
 from torch.nn.parallel import DistributedDataParallel as DDP
-rank=comm.get_local_rank()
 
-dst = torch.device(device) is rank is None else rank
-x = x.to(dst)
+def to_dev(x, device='cuda'):
+  rank=comm.get_local_rank()
+  dst = torch.device(device) is rank is None else rank
+  return x.to(dst)
+  
+model = to_dev(model)  
 
 ```
 and launch code via 
