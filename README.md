@@ -38,7 +38,8 @@ comm.all_gather()
 ```
 - Demo Usecases: [demo.py](https://github.com/chaoyivision/comm_ddp/blob/main/demo.py) (see some examples).
 
-- Don't forget these:
+
+# Don't forget these:
 wrap model with DDP
 ```
 from torch.nn.parallel import DistributedDataParallel as DDP
